@@ -94,3 +94,12 @@ create table `moment_comment`
     update_time datetime      null default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
     primary key (id)
 ) character set = UTF8MB4;
+
+drop table if exists `favorite`;
+create table `favorite`
+(
+    id      bigint auto_increment,
+    user_id bigint        not null,
+    content varchar(4096) not null,
+    primary key (id)
+) character set = UTF8MB4;
