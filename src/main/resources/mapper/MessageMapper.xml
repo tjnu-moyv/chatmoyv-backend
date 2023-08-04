@@ -8,7 +8,7 @@
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="senderId" column="sender_id" jdbcType="BIGINT"/>
             <result property="receiverId" column="receiver_id" jdbcType="BIGINT"/>
-            <result property="type" column="type" jdbcType="BIGINT"/>
+            <result property="type" column="message_type" jdbcType="BIGINT"/>
             <result property="content" column="content" jdbcType="VARCHAR"/>
             <result property="isRead" column="is_read" jdbcType="TINYINT"/>
             <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
@@ -17,8 +17,9 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,sender_id,receiver_id,
-        type,content,is_read,
+        id
+        ,sender_id,receiver_id,
+        message_type,content,is_read,
         create_time,is_delete,update_time
     </sql>
 </mapper>
