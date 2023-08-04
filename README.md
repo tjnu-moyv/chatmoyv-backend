@@ -78,7 +78,7 @@
     |       |       UserMapper.xml                              - MyBatis用户数据操作映射文件
     |       |
     |       \---sql                                        - 数据库相关
-    |               mysql-1.0.1.sql                             - 数据库初始化SQL脚本 1.0.1版本
+    |               mysql-1.0.2.sql                             - 数据库初始化SQL脚本 1.0.1版本
     |
     \---test                                               - 测试文件夹
         \---java
