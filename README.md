@@ -15,7 +15,8 @@
 
 # 项目结构:
 
-```.
+```
+.
 |   .gitignore          - Git版本控制忽略文件配置
 |   application.yml     - 主配置文件，用于配置应用程序参数
 |   pom.xml             - Maven项目构建配置文件
