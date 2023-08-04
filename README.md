@@ -17,51 +17,83 @@
 
 ## 用户表(User)：
 
-* 用户ID(ID)：唯一标识用户的ID
-* 用户名(Username)：用户在系统中显示的名称
-* 密码(Password)：用户的登录密码
-* 头像(Avatar)：用户的个人头像图片地址
-* 昵称(Nickname)：用户在系统中显示的昵称
-* 性别(Gender)：用户的性别
-* 邮箱(Email)：用户的邮箱地址
-* 手机号码(Phone)：用户的手机号码
-* 生日(Birthday)：用户的出生日期(非必填)
+* 用户ID(ID):唯一标识用户的ID(主键 bigint,从10000自动增长)
+* 用户名(Username):用户在系统中显示的名称(不可重复,最低6位，只有数字和字母)
+* 密码(Password):用户的登录密码(至少6位数字和字母)
+* 昵称(Nickname)：用户在系统中显示的昵称(默认为username)
+* 性别(Gender)：用户的性别(非必填)
+* 邮箱(Email)：用户的邮箱地址(非必填)
+* 手机号码(Phone)：用户的手机号码(非必填)
+* 生日(Birthday)：用户的出生日期(非必填)(时间戳)
 * 地址(Address)：用户的住址(非必填)
 * 教育背景(Education)：用户的教育背景信息(非必填)
 * 职业(Occupation)：用户的职业信息(非必填)
 * 兴趣爱好(Interests)：用户的兴趣爱好(非必填)
 * 个人简介(Bio)：用户的个人简介介绍(非必填)
-* 社交账号(SocialAccounts)：用户的其他社交媒体账号(qq号或者微信号)
-* 注册日期(RegistrationDate)：用户注册的日期和时间
 * 最后登录时间(LastLoginTime)：用户最后一次登录的日期和时间
 * 密码的修改日期(PasswordChangeDate)：用户最后一次修改密码的日期
 * 创建时间(create_time)：注册时的时间
+* 用户状态
+* 用户角色
+* 逻辑删除(is_deleted):默认为0，删除为1
+* 更新时间(update_time):(时间戳)
 
 ## 好友关系表(Friendship)：
 
 * 关系ID(ID)：唯一标识好友关系的ID
 * 用户ID1(UserID1)：好友关系的一方用户ID
 * 用户ID2(UserID2)：好友关系的另一方用户ID
-* 关系状态(Status)：表示是否是好友关系，可以是已成为好友、待确认、已拒绝等
-* 添加时间(AddTime)：好友关系被创建的日期和时间
+* 关系状态(Status)：表示是否是好友关系，可以是已成为好友2、待确认1、已拒绝0等
+* 逻辑删除(is_deleted):默认为0，删除为1
+* 创建时间(create_time)：注册时的时间
+* 更新时间(update_time):(时间戳)
+
 
 ## 聊天消息表(Message)：
 
 * 消息ID(ID)：唯一标识消息的ID
 * 发送者ID(SenderID)：消息的发送者用户ID
 * 接收者ID(ReceiverID)：消息的接收者用户ID
-* 消息内容(Content)：消息的文本内容
-* 发送时间(Timestamp)：消息的发送时间
+* 消息类型(MessageType):消息类型 (0文本1图片2语音3视频)
+* 消息内容(Content)：消息的文本内容()
+* 发送时间(createstamp)：消息的发送时间
 * 是否已读(IsRead)：表示消息是否已被接收者阅读
-* 消息类型(MessageType)：消息的类型，例如文本、图片、语音等
-* 附件(Attachment)：消息的附件，例如图片或文件的链接地址
+* 逻辑删除(is_deleted):默认为0，删除为1
+* 创建时间(create_time)：注册时的时间
+* 更新时间(update_time):(时间戳)
 
 ## 朋友圈表(Moment)：
 
 * 动态ID(ID)：唯一标识朋友圈动态的ID
 * 用户ID(UserID)：发布动态的用户ID
 * 动态内容(Content)：动态的文本内容
-* 发布时间(Timestamp)：动态的发布时间
 * 点赞数(LikeCount)：动态收到的点赞数量
 * 评论数(CommentCount)：动态收到的评论数量
 * 图片列表(ImageList)：动态中包含的图片列表
+* 逻辑删除(is_deleted):默认为0，删除为1
+* 创建时间(create_time)：注册时的时间
+* 更新时间(update_time):(时间戳)
+
+## 点赞表
+
+* ID
+* 朋友圈id
+* 点赞者id
+* 逻辑删除(is_deleted):默认为0，删除为1
+* 创建时间(create_time)：注册时的时间
+* 更新时间(update_time):(时间戳)
+
+## 评论表
+
+* ID
+* 朋友圈id
+* 点赞者id
+* 评论内容
+* 逻辑删除(is_deleted):默认为0，删除为1
+* 创建时间(create_time)：注册时的时间
+* 更新时间(update_time):(时间戳)
+
+## 收藏表
+* ID
+* 收藏者ID
+* 收藏内容
