@@ -25,5 +25,18 @@ create table `user`
     update_time          datetime            null default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
     primary key (id)
 ) auto_increment = 1000
-  CHARACTER SET = utf8;
+  CHARACTER SET = UTF8MB4;
+
+drop table if exists `user_relations`;
+create table `user_relations`
+(
+    id          bigint auto_increment,
+    user_id     bigint   not null,
+    friend_id   bigint   not null,
+    status      tinyint       default 0,
+    create_time datetime null default CURRENT_TIMESTAMP null comment '创建时间',
+    is_delete   tinyint  null default 0 not null comment '是否删除',
+    update_time datetime null default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    primary key (id)
+) character set = UTF8MB4;
 
