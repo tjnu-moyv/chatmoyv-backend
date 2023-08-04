@@ -16,76 +16,29 @@
 # 项目结构:
 
 ```
-.
-|   .gitignore          - Git版本控制忽略文件配置
-|   application.yml     - 主配置文件，用于配置应用程序参数
-|   pom.xml             - Maven项目构建配置文件
-|   README.md           - 项目说明文档
-|
-\---src
-    +---main
-    |   +---java
-    |   |   \---com
-    |   |       \---example
-    |   |           |   MoyuChatApplication.java                - Spring Boot应用程序入口类
-    |   |           |
-    |   |           +---config                             - 配置相关的
-    |   |           |       GlobalExceptionHandle.java          - 全局异常处理器配置
-    |   |           |       InterceptorConfig.java              - 拦截器配置
-    |   |           |
-    |   |           +---controller                         - 控制器层
-    |   |           |       UserController.java                 - 用户相关接口控制器
-    |   |           |
-    |   |           +---domain                             - 实体类
-    |   |           |       User.java                           - 用户实体类
-    |   |           |
-    |   |           +---error                              - 有关异常
-    |   |           |   |   ChatError.java                      - 自定义错误类
-    |   |           |   |
-    |   |           |   \---exception                      - 项目中出现的异常
-    |   |           |           LoginException.java             - 登录异常类
-    |   |           |           RegisterException.java          - 注册异常类
-    |   |           |           TokenException.java             - Token异常类
-    |   |           |           UserCenterException.java        - 用户中心异常类 顶级异常 (项目中所以出现的异常都应继承此类)
-    |   |           |           UserUpdateException.java        - 用户更新异常类
-    |   |           |
-    |   |           +---interceptor                        - 拦截器
-    |   |           |       AuthCheckInterceptor.java           - 权限检查拦截器
-    |   |           |
-    |   |           +---mapper                             - 数据库访问层
-    |   |           |       UserMapper.java                     - MyBatis用户数据操作接口
-    |   |           |
-    |   |           +---request                            - 请求层(可选 项目中需要的)
-    |   |           |       UserLoginRequest.java               - 用户登录请求类
-    |   |           |       UserRegisterRequest.java            - 用户注册请求类
-    |   |           |       UserUpdatePwdRequest.java           - 用户更新密码请求类
-    |   |           |
-    |   |           +---service                            - 服务层
-    |   |           |   |   UserService.java                    - 用户服务接口
-    |   |           |   |
-    |   |           |   \---impl                           - 服务层实现
-    |   |           |           UserServiceImpl.java            - 用户服务接口实现类
-    |   |           |
-    |   |           \---utils                              - 工具包
-    |   |                   Response.java                       - 响应数据封装类
-    |   |                   TimeUtil.java                       - 时间工具类
-    |   |                   TokenPool.java                      - Token池类
-    |   |
-    |   \---resources                                      - 项目用到的资源
-    |       |   application.yml                                 - 资源配置文件
-    |       |
-    |       +---mapper                                     - mybatis-plus生成mapper用到
-    |       |       UserMapper.xml                              - MyBatis用户数据操作映射文件
-    |       |
-    |       \---sql                                        - 数据库相关
-    |               mysql-1.0.2.sql                             - 数据库初始化SQL脚本 1.0.1版本
-    |
-    \---test                                               - 测试文件夹
-        \---java
-            \---com
-                \---example
-                        MoyuChatApplicationTests.java    - Spring Boot应用程序测试类
-
+src:
++---main
+|   +---java
+|   |   \---com
+|   |       \---example
+|   |           +---config             - 配置相关的
+|   |           +---controller         - 控制器层
+|   |           +---domain             - 实体类
+|   |           +---error              - 有关错误的总类
+|   |           |   \---exception      - 项目中出现的异常(抛出时使用)
+|   |           +---interceptor        - 拦截器
+|   |           +---mapper             - 数据库访问层
+|   |           +---request            - 请求层(可选 项目中需要的)
+|   |           +---service            - 服务层
+|   |           |   \---impl           - 服务层实现
+|   |           \---utils              - 工具包
+|   \---resources                      - 项目用到的资源
+|       +---mapper                     - mybatis-plus生成mapper层实现类用到
+|       \---sql                        - 数据库相关
+\---test                               - 测试文件夹
+    \---java
+        \---com
+            \---example
 ```
 
 ## 用户表(User)：
