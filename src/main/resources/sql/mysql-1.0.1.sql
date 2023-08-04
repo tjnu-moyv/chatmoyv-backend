@@ -40,3 +40,18 @@ create table `user_relations`
     primary key (id)
 ) character set = UTF8MB4;
 
+drop table if exists `message`;
+create table `message`
+(
+    id          bigint auto_increment,
+    sender_id   bigint        not null,
+    receiver_id bigint        not null,
+    type        bigint             default 0 not null,
+    content     varchar(1024) not null,
+    is_read     tinyint            default 0,
+    create_time datetime      null default CURRENT_TIMESTAMP null comment '创建时间',
+    is_delete   tinyint       null default 0 not null comment '是否删除',
+    update_time datetime      null default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    primary key (id)
+) character set = UTF8MB4;
+
