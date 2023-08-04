@@ -55,3 +55,42 @@ create table `message`
     primary key (id)
 ) character set = UTF8MB4;
 
+drop table if exists `moment`;
+create table `moment`
+(
+    id            bigint auto_increment,
+    user_id       bigint        not null,
+    content       varchar(1024) not null,
+    like_count    int                default 0 not null,
+    comment_count int                default 0,
+    image_list    varchar(1024)      default null,
+    create_time   datetime      null default CURRENT_TIMESTAMP null comment '创建时间',
+    is_delete     tinyint       null default 0 not null comment '是否删除',
+    update_time   datetime      null default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    primary key (id)
+) character set = UTF8MB4;
+
+drop table if exists `moment_like`;
+create table `moment_like`
+(
+    id          bigint auto_increment,
+    moment_id   bigint   not null,
+    user_id     bigint   not null,
+    create_time datetime null default CURRENT_TIMESTAMP null comment '创建时间',
+    is_delete   tinyint  null default 0 not null comment '是否删除',
+    update_time datetime null default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    primary key (id)
+) character set = UTF8MB4;
+
+drop table if exists `moment_comment`;
+create table `moment_comment`
+(
+    id          bigint auto_increment,
+    moment_id   bigint        not null,
+    user_id     bigint        not null,
+    content     varchar(1024) not null,
+    create_time datetime      null default CURRENT_TIMESTAMP null comment '创建时间',
+    is_delete   tinyint       null default 0 not null comment '是否删除',
+    update_time datetime      null default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    primary key (id)
+) character set = UTF8MB4;
