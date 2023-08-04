@@ -15,7 +15,8 @@
 
 # 项目结构:
 
-```.
+```
+.
 |   .gitignore          - Git版本控制忽略文件配置
 |   application.yml     - 主配置文件，用于配置应用程序参数
 |   pom.xml             - Maven项目构建配置文件
@@ -77,7 +78,7 @@
     |       |       UserMapper.xml                              - MyBatis用户数据操作映射文件
     |       |
     |       \---sql                                        - 数据库相关
-    |               mysql-1.0.1.sql                             - 数据库初始化SQL脚本 1.0.1版本
+    |               mysql-1.0.2.sql                             - 数据库初始化SQL脚本 1.0.1版本
     |
     \---test                                               - 测试文件夹
         \---java

@@ -57,15 +57,15 @@ CREATE TABLE `user_relations`
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message`
 (
-    `id`          bigint                                                         NOT NULL AUTO_INCREMENT,
-    `sender_id`   bigint                                                         NOT NULL,
-    `receiver_id` bigint                                                         NOT NULL,
-    `type`        bigint                                                         NOT NULL DEFAULT 0,
-    `content`     varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-    `is_read`     tinyint                                                        NULL     DEFAULT 0,
-    `create_time` datetime                                                       NULL     DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `is_delete`   tinyint                                                        NOT NULL DEFAULT 0 COMMENT '是否删除',
-    `update_time` datetime                                                       NULL     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    `id`           bigint                                                         NOT NULL AUTO_INCREMENT,
+    `sender_id`    bigint                                                         NOT NULL,
+    `receiver_id`  bigint                                                         NOT NULL,
+    `message_type` tinyint                                                        NOT NULL DEFAULT 0,
+    `content`      varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+    `is_read`      tinyint                                                        NULL     DEFAULT 0,
+    `create_time`  datetime                                                       NULL     DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `is_delete`    tinyint                                                        NOT NULL DEFAULT 0 COMMENT '是否删除',
+    `update_time`  datetime                                                       NULL     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB
   CHARACTER SET = utf8mb4
@@ -136,9 +136,12 @@ CREATE TABLE `moment_like`
 DROP TABLE IF EXISTS `favorite`;
 CREATE TABLE `favorite`
 (
-    `id`      bigint                                                         NOT NULL AUTO_INCREMENT,
-    `user_id` bigint                                                         NOT NULL,
-    `content` varchar(4096) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+    `id`          bigint                                                         NOT NULL AUTO_INCREMENT,
+    `user_id`     bigint                                                         NOT NULL,
+    `content`     varchar(4096) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+    `create_time` datetime                                                       NULL     DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `is_delete`   tinyint                                                        NOT NULL DEFAULT 0 COMMENT '是否删除',
+    `update_time` datetime                                                       NULL     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB
   CHARACTER SET = utf8mb4
