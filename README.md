@@ -13,7 +13,79 @@
     * 是否可见(可见的分组)
 * 收藏
 
-# 聊天室(chatroom)
+# 项目结构:
+
+```
+.
+|   .gitignore        
+|   application.yml            
+|   pom.xml                    
+|   README.md                  
+|
+\---src
+    +---main
+    |   +---java
+    |   |   \---com
+    |   |       \---example
+    |   |           |   MoyuChatApplication.java
+    |   |           |
+    |   |           +---config
+    |   |           |       GlobalExceptionHandle.java
+    |   |           |       InterceptorConfig.java
+    |   |           |
+    |   |           +---controller
+    |   |           |       UserController.java
+    |   |           |
+    |   |           +---domain
+    |   |           |       User.java
+    |   |           |
+    |   |           +---error
+    |   |           |   |   ChatError.java
+    |   |           |   |
+    |   |           |   \---exception
+    |   |           |           LoginException.java
+    |   |           |           RegisterException.java
+    |   |           |           TokenException.java
+    |   |           |           UserCenterException.java
+    |   |           |           UserUpdateException.java
+    |   |           |
+    |   |           +---interceptor
+    |   |           |       AuthCheckInterceptor.java
+    |   |           |
+    |   |           +---mapper
+    |   |           |       UserMapper.java
+    |   |           |
+    |   |           +---request
+    |   |           |       UserLoginRequest.java
+    |   |           |       UserRegisterRequest.java
+    |   |           |       UserUpdatePwdRequest.java
+    |   |           |
+    |   |           +---service
+    |   |           |   |   UserService.java
+    |   |           |   |
+    |   |           |   \---impl
+    |   |           |           UserServiceImpl.java
+    |   |           |
+    |   |           \---utils
+    |   |                   Response.java
+    |   |                   TimeUtil.java
+    |   |                   TokenPool.java
+    |   |
+    |   \---resources
+    |       |   application.yml
+    |       |
+    |       +---mapper
+    |       |       UserMapper.xml
+    |       |
+    |       \---sql
+    |               mysql-1.0.1.sql
+    |
+    \---test
+        \---java
+            \---com
+                \---example
+                        MoyuChatApplicationTests.java
+```
 
 ## 用户表(User)：
 
