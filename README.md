@@ -15,76 +15,76 @@
 
 # 项目结构:
 
-```
-.
-|   .gitignore        
-|   application.yml            
-|   pom.xml                    
-|   README.md                  
+```.
+|   .gitignore          - Git版本控制忽略文件配置
+|   application.yml     - 主配置文件，用于配置应用程序参数
+|   pom.xml             - Maven项目构建配置文件
+|   README.md           - 项目说明文档
 |
 \---src
     +---main
     |   +---java
     |   |   \---com
     |   |       \---example
-    |   |           |   MoyuChatApplication.java
+    |   |           |   MoyuChatApplication.java                - Spring Boot应用程序入口类
     |   |           |
-    |   |           +---config
-    |   |           |       GlobalExceptionHandle.java
-    |   |           |       InterceptorConfig.java
+    |   |           +---config                             - 配置相关的
+    |   |           |       GlobalExceptionHandle.java          - 全局异常处理器配置
+    |   |           |       InterceptorConfig.java              - 拦截器配置
     |   |           |
-    |   |           +---controller
-    |   |           |       UserController.java
+    |   |           +---controller                         - 控制器层
+    |   |           |       UserController.java                 - 用户相关接口控制器
     |   |           |
-    |   |           +---domain
-    |   |           |       User.java
+    |   |           +---domain                             - 实体类
+    |   |           |       User.java                           - 用户实体类
     |   |           |
-    |   |           +---error
-    |   |           |   |   ChatError.java
+    |   |           +---error                              - 有关异常
+    |   |           |   |   ChatError.java                      - 自定义错误类
     |   |           |   |
-    |   |           |   \---exception
-    |   |           |           LoginException.java
-    |   |           |           RegisterException.java
-    |   |           |           TokenException.java
-    |   |           |           UserCenterException.java
-    |   |           |           UserUpdateException.java
+    |   |           |   \---exception                      - 项目中出现的异常
+    |   |           |           LoginException.java             - 登录异常类
+    |   |           |           RegisterException.java          - 注册异常类
+    |   |           |           TokenException.java             - Token异常类
+    |   |           |           UserCenterException.java        - 用户中心异常类 顶级异常 (项目中所以出现的异常都应继承此类)
+    |   |           |           UserUpdateException.java        - 用户更新异常类
     |   |           |
-    |   |           +---interceptor
-    |   |           |       AuthCheckInterceptor.java
+    |   |           +---interceptor                        - 拦截器
+    |   |           |       AuthCheckInterceptor.java           - 权限检查拦截器
     |   |           |
-    |   |           +---mapper
-    |   |           |       UserMapper.java
+    |   |           +---mapper                             - 数据库访问层
+    |   |           |       UserMapper.java                     - MyBatis用户数据操作接口
     |   |           |
-    |   |           +---request
-    |   |           |       UserLoginRequest.java
-    |   |           |       UserRegisterRequest.java
-    |   |           |       UserUpdatePwdRequest.java
+    |   |           +---request                            - 请求层(可选 项目中需要的)
+    |   |           |       UserLoginRequest.java               - 用户登录请求类
+    |   |           |       UserRegisterRequest.java            - 用户注册请求类
+    |   |           |       UserUpdatePwdRequest.java           - 用户更新密码请求类
     |   |           |
-    |   |           +---service
-    |   |           |   |   UserService.java
+    |   |           +---service                            - 服务层
+    |   |           |   |   UserService.java                    - 用户服务接口
     |   |           |   |
-    |   |           |   \---impl
-    |   |           |           UserServiceImpl.java
+    |   |           |   \---impl                           - 服务层实现
+    |   |           |           UserServiceImpl.java            - 用户服务接口实现类
     |   |           |
-    |   |           \---utils
-    |   |                   Response.java
-    |   |                   TimeUtil.java
-    |   |                   TokenPool.java
+    |   |           \---utils                              - 工具包
+    |   |                   Response.java                       - 响应数据封装类
+    |   |                   TimeUtil.java                       - 时间工具类
+    |   |                   TokenPool.java                      - Token池类
     |   |
-    |   \---resources
-    |       |   application.yml
+    |   \---resources                                      - 项目用到的资源
+    |       |   application.yml                                 - 资源配置文件
     |       |
-    |       +---mapper
-    |       |       UserMapper.xml
+    |       +---mapper                                     - mybatis-plus生成mapper用到
+    |       |       UserMapper.xml                              - MyBatis用户数据操作映射文件
     |       |
-    |       \---sql
-    |               mysql-1.0.1.sql
+    |       \---sql                                        - 数据库相关
+    |               mysql-1.0.1.sql                             - 数据库初始化SQL脚本 1.0.1版本
     |
-    \---test
+    \---test                                               - 测试文件夹
         \---java
             \---com
                 \---example
-                        MoyuChatApplicationTests.java
+                        MoyuChatApplicationTests.java    - Spring Boot应用程序测试类
+
 ```
 
 ## 用户表(User)：
