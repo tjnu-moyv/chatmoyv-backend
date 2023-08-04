@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author SurKaa
+ * @author 810477672, SurKaa
  * @TableName user
  */
 @Data
@@ -18,80 +18,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @TableName(value = "user")
 public class User implements Serializable {
-    /**
-     *
-     */
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = -6122147622749165135L;
+
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    /**
-     *
-     */
     private String username;
 
-    /**
-     *
-     */
     private String password;
 
-    /**
-     *
-     */
     private String nickname;
 
-    /**
-     *
-     */
     private Integer gender;
 
-    /**
-     *
-     */
     private String email;
 
-    /**
-     *
-     */
     private String phoneNumber;
 
-    /**
-     *
-     */
     private Date birthday;
 
-    /**
-     *
-     */
     private String address;
 
-    /**
-     *
-     */
     private String education;
 
-    /**
-     *
-     */
     private String occupation;
 
-    /**
-     *
-     */
     private String interests;
 
-    /**
-     *
-     */
     private String bio;
 
-    /**
-     *
-     */
     private Date lastLoginTime;
 
-    /**
-     *
-     */
     private Date passwordChangeTime;
 
     /**
@@ -156,7 +115,4 @@ public class User implements Serializable {
         safe.updateTime = user.updateTime;
         return safe;
     }
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 }
