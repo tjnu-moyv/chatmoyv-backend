@@ -1,6 +1,8 @@
 package com.example.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -10,6 +12,8 @@ import java.io.Serializable;
  * @author SurKaa
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserUpdatePwdRequest implements Serializable {
 
     private static final long serialVersionUID = 6752728535515236319L;
