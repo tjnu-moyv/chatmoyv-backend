@@ -1,6 +1,5 @@
 package com.example.config;
 
-import com.example.interceptor.AuthCheckInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -16,6 +15,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 鉴权拦截器
-        registry.addInterceptor(new AuthCheckInterceptor());
+//        registry.addInterceptor(new AuthCheckInterceptor());
     }
 }
